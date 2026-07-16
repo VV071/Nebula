@@ -73,7 +73,7 @@ function Bar({ value, max }: { value: number; max: number }) {
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function StockClash({
-  tickerA, tickerB, chosen, stake, bidId,
+  tickerA, tickerB, chosen, bidId,
   windowSeconds = 0,
   onSettle,
   potentialRange,

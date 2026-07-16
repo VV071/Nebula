@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useFinance } from '../contexts/FinanceContext';
-import { Plus, Edit2, AlertTriangle, CheckCircle } from 'lucide-react';
+import { Plus, Edit2, AlertTriangle } from 'lucide-react';
 
 export default function Budgets() {
-    const { t } = useTranslation();
     const { categories, getBudgets, createBudget } = useFinance();
     const [budgets, setBudgets] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
     const [editingCategory, setEditingCategory] = useState<string | null>(null);
     const [editAmount, setEditAmount] = useState<number>(0);
 
@@ -73,7 +71,7 @@ export default function Budgets() {
                         const budget = budgets.find(b => b.category_id.toString() === category.id);
                         const percentUsed = budget ? budget.percentUsed : 0;
                         const alertClass = budget ? getAlertLevel(percentUsed) : '';
-                        const isEditing = editingCategory === category.id;
+                        const isEditing = editingCategory === category.id.toString();
 
                         return (
                             <div key={category.id} className={`glass-card p-6 border transition-all ${budget ? alertClass.split(' ')[2] : 'border-transparent'}`}>
@@ -114,7 +112,7 @@ export default function Budgets() {
                                                     placeholder="Limit"
                                                 />
                                                 <button
-                                                    onClick={() => handleSaveBudget(category.id)}
+                                                    onClick={() => handleSaveBudget(category.id.toString())}
                                                     className="btn-primary py-1 px-3 text-sm"
                                                 >
                                                     Save
@@ -129,7 +127,7 @@ export default function Budgets() {
                                         ) : (
                                             <button
                                                 onClick={() => {
-                                                    setEditingCategory(category.id);
+                                                    setEditingCategory(category.id.toString());
                                                     setEditAmount(budget?.limit_amount || 0);
                                                 }}
                                                 className="btn-secondary flex items-center gap-2 py-1 px-3 text-sm"

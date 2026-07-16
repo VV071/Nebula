@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  BarChart2, Search, TrendingUp, TrendingDown, AlertCircle,
+  BarChart2, Search, TrendingUp, AlertCircle,
   Loader2, Activity, Newspaper, Zap, ShieldAlert,
 } from 'lucide-react';
 import { marketService, Scorecard } from '../services/marketService';

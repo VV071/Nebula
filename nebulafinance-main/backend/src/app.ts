@@ -13,6 +13,7 @@ import exportRoutes from './routes/export.routes';
 import testRoutes from './routes/test.routes';
 import marketRoutes from './routes/market.routes';
 import bidsRoutes from './routes/bids.routes';
+import smeRoutes from './routes/sme.routes';
 
 const app = express();
 
@@ -74,6 +75,7 @@ app.use(`${apiPrefix}/summary`, summaryRoutes);
 app.use(`${apiPrefix}/export`, exportRoutes);
 app.use(`${apiPrefix}/market`, marketRoutes);
 app.use(`${apiPrefix}/bids`,   bidsRoutes);
+app.use(`${apiPrefix}/sme`,    smeRoutes);
 
 app.use(`/api`, testRoutes);
 

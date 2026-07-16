@@ -55,7 +55,7 @@ export const stockDataService = {
             const searchTerm = symbol.toUpperCase();
 
             // Check each mock stock
-            for (const [key, stock] of Object.entries(MOCK_STOCKS)) {
+            for (const [, stock] of Object.entries(MOCK_STOCKS)) {
                 if (stock.symbol.toUpperCase() === searchTerm ||
                     stock.companyName.toUpperCase().includes(searchTerm) ||
                     searchTerm.includes(stock.symbol.toUpperCase())) {
@@ -67,7 +67,7 @@ export const stockDataService = {
         }
     },
 
-    async getCompanyOverview(symbol: string) {
+    async getCompanyOverview(_symbol: string) {
         // Optional: Fetch fuller details like Name and Market Cap
         return {
             Description: 'Mock description for hackathon',

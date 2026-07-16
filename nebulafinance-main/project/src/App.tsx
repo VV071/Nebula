@@ -17,11 +17,12 @@ import MarketInsights from './pages/MarketInsights';
 import LendTracker from './pages/LendTracker';
 import StockPrediction from './pages/StockPrediction';
 import BiddingArena from './pages/BiddingArena';
+import SmeAdvisor from './pages/SmeAdvisor';
 import Navigation from './components/Navigation';
 import LoadingSpinner from './components/LoadingSpinner';
 import SplashScreen from './components/SplashScreen';
 
-export type Page = 'dashboard' | 'accounts' | 'transactions' | 'insights' | 'profile' | 'goals' | 'budgets' | 'apiTest' | 'market-insights' | 'lends' | 'stock-prediction' | 'bidding';
+export type Page = 'dashboard' | 'accounts' | 'transactions' | 'insights' | 'profile' | 'goals' | 'budgets' | 'apiTest' | 'market-insights' | 'lends' | 'stock-prediction' | 'bidding' | 'sme-advisor';
 
 function AppContent() {
   const { user, loading } = useAuth();
@@ -67,6 +68,8 @@ function AppContent() {
         return <StockPrediction />;
       case 'bidding':
         return <BiddingArena />;
+      case 'sme-advisor':
+        return <SmeAdvisor />;
       default:
         return <Dashboard />;
     }

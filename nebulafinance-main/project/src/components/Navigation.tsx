@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Home, Wallet, List, Lightbulb, User, Sun, Moon, Monitor, LogOut, Globe, Target, TrendingUp, Banknote, Sparkles, BarChart2, Swords } from 'lucide-react';
+import { Home, Wallet, List, Lightbulb, User, Sun, Moon, Monitor, LogOut, Globe, Target, TrendingUp, Banknote, Sparkles, BarChart2, Swords, Building2 } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useState } from 'react';
@@ -27,6 +27,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
   const menuItems = [
     { id: 'dashboard' as Page, icon: Home, label: t('nav.dashboard') },
+    { id: 'sme-advisor' as Page, icon: Building2, label: 'SME Advisor', beta: true },
     { id: 'market-insights' as Page, icon: TrendingUp, label: t('market.title'), beta: true },
     { id: 'stock-prediction' as Page, icon: BarChart2, label: 'Stock Prediction', beta: true },
     { id: 'bidding' as Page, icon: Swords, label: 'Bidding Arena', beta: true },

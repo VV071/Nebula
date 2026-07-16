@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GitCompare, TrendingUp, TrendingDown, AlertCircle, Loader2 } from 'lucide-react';
+import { GitCompare, TrendingUp, AlertCircle, Loader2 } from 'lucide-react';
 import { marketService, CompareResult, Scorecard } from '../../services/marketService';
 
 const SCORE_LABELS: Record<string, string> = {
