@@ -1,0 +1,12 @@
+# SME Cash-Flow Risk Copilot — compute engine dependencies
+#
+# Deterministic code does the math (risk scoring + Monte Carlo forecasting).
+# Gemma (via Ollama) does everything language-shaped. No other LLM is used.
+
+numpy>=1.24.0
+pandas>=2.0.0
+yfinance>=0.2.40
+vaderSentiment>=3.3.2
+requests>=2.31.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0

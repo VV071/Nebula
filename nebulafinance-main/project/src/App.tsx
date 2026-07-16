@@ -13,7 +13,6 @@ import Profile from './pages/Profile';
 import Goals from './pages/Goals';
 import Budgets from './pages/Budgets';
 import ApiTest from './pages/ApiTest';
-import MarketInsights from './pages/MarketInsights';
 import LendTracker from './pages/LendTracker';
 import StockPrediction from './pages/StockPrediction';
 import BiddingArena from './pages/BiddingArena';
@@ -21,7 +20,7 @@ import Navigation from './components/Navigation';
 import LoadingSpinner from './components/LoadingSpinner';
 import SplashScreen from './components/SplashScreen';
 
-export type Page = 'dashboard' | 'accounts' | 'transactions' | 'insights' | 'profile' | 'goals' | 'budgets' | 'apiTest' | 'market-insights' | 'lends' | 'stock-prediction' | 'bidding';
+export type Page = 'dashboard' | 'accounts' | 'transactions' | 'insights' | 'profile' | 'goals' | 'budgets' | 'apiTest' | 'lends' | 'stock-prediction' | 'bidding';
 
 function AppContent() {
   const { user, loading } = useAuth();
@@ -59,8 +58,6 @@ function AppContent() {
         return <Budgets />;
       case 'apiTest':
         return <ApiTest />;
-      case 'market-insights':
-        return <MarketInsights onNavigate={setCurrentPage} />;
       case 'lends':
         return <LendTracker />;
       case 'stock-prediction':
@@ -76,22 +73,25 @@ function AppContent() {
     <FinanceProvider>
       <div className="min-h-screen">
         <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
-        <main className="lg:ml-64" style={{ perspective: '1200px' }}>
+        <main className="lg:ml-64" style={{ perspective: '1400px', perspectiveOrigin: '50% 20%' }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={currentPage}
               initial={shouldReduceMotion
                 ? { opacity: 0 }
-                : { opacity: 0, y: 32, scale: 0.97, filter: 'blur(4px)' }}
+                : { opacity: 0, y: 44, z: -120, rotateX: -7, scale: 0.96, filter: 'blur(8px)' }}
               animate={shouldReduceMotion
                 ? { opacity: 1 }
-                : { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                : { opacity: 1, y: 0, z: 0, rotateX: 0, scale: 1, filter: 'blur(0px)' }}
               exit={shouldReduceMotion
                 ? { opacity: 0 }
-                : { opacity: 0, y: -16, scale: 0.98, filter: 'blur(2px)' }}
+                : {
+                    opacity: 0, y: -24, z: 60, rotateX: 4, scale: 1.015, filter: 'blur(4px)',
+                    transition: { duration: 0.26, ease: [0.4, 0, 1, 1] },
+                  }}
               transition={shouldReduceMotion
                 ? { duration: 0 }
-                : { duration: 0.38, ease: [0.34, 1.2, 0.64, 1] }}
+                : { duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
               style={{ transformOrigin: 'center top', transformStyle: 'preserve-3d' }}
             >
               {renderPage()}
